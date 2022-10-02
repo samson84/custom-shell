@@ -1,3 +1,5 @@
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+
 # Powerlvel10k  theme instant load if installed
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -33,7 +35,7 @@ zi ice if"[[ -d ${HOME}/.fonts/ttf ]] && [[ $OSTYPE = linux* ]]" \
   atclone="rm -f *Windows*; mv -vf *.ttf ${HOME}/.fonts/ttf/; fc-cache -v -f" atpull"%atclone"
 zi light ryanoasis/nerd-fonts
 # plugin, configured
-zi ice depth'1' atload"[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh" nocd
+zi ice depth'1' atload"[[ ! -f $SCRIPT_DIR/.p10k.zsh ]] || source $SCRIPT_DIR/.p10k.zsh" nocd
 zi light romkatv/powerlevel10k
 
 zi ice from'gh-r' as'program' mv'lsd* lsd' sbin'**/lsd -> lsd'
