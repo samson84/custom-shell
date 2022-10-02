@@ -68,6 +68,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=7"
 
 # aliases
 
+# zsh-z autojump
+alias j=z
+
 # Unzipping
 alias untar='tar –-extract --verbose --gzip'
 
