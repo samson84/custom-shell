@@ -24,11 +24,7 @@ zicompinit # <- https://wiki.zshell.dev/docs/guides/commands
 zi light-mode for z-shell/z-a-meta-plugins @annexes
 
 # Powerlevel10k
-# add predefined config if missing
-if [[ ! -f ~/.p10k.zsh ]]; then
-  echo "Copying ${SCRIPT_DIR}/.p10k.zsh config to homedir"
-  cp ${SCRIPT_DIR}/.p10k.zsh ~
-fi
+
 # instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
