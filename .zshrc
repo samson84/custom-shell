@@ -1,9 +1,4 @@
-SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
-
-# Powerlvel10k  theme instant load if installed
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+SCRIPT_DIR=$(dirname "$(realpath $0)")
 
 # ZSH history
 HISTFILE=~/.zsh_history
@@ -29,13 +24,22 @@ zicompinit # <- https://wiki.zshell.dev/docs/guides/commands
 zi light-mode for z-shell/z-a-meta-plugins @annexes
 
 # Powerlevel10k
+# add predefined config if missing
+if [[ ! -f ~/.p10k.zsh ]]; then
+  echo "Copying ${SCRIPT_DIR}/.p10k.zsh config to homedir"
+  cp ${SCRIPT_DIR}/.p10k.zsh ~
+fi
+# instant prompt
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 # fonts
 zi ice if"[[ -d ${HOME}/.fonts/ttf ]] && [[ $OSTYPE = linux* ]]" \
   id-as"meslo" from"gh-r" bpick"Meslo.zip" extract nocompile depth"1" \
   atclone="rm -f *Windows*; mv -vf *.ttf ${HOME}/.fonts/ttf/; fc-cache -v -f" atpull"%atclone"
 zi light ryanoasis/nerd-fonts
 # plugin, configured
-zi ice depth'1' atload"[[ ! -f $SCRIPT_DIR/.p10k.zsh ]] || source $SCRIPT_DIR/.p10k.zsh" nocd
+zi ice depth'1' atload"[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh" nocd
 zi light romkatv/powerlevel10k
 
 zi ice from'gh-r' as'program' mv'lsd* lsd' sbin'**/lsd -> lsd'
