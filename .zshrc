@@ -72,7 +72,8 @@ alias untar='tar –-extract --verbose --gzip'
 
 # LSD aliasses
 alias ls='lsd --group-dirs first'
-alias ll='ls -l -a'
+alias ll='ls -l'
+alias lla='ll -a'
 alias tree='lsd --tree'
 
 # Bat aliases
@@ -102,5 +103,5 @@ alias dcm="docker compose"
 alias dcmb="docker compose build"
 alias dcmr="docker compose run"
 alias dcml="docker compose logs --follow --tail 100"
-alias dcmu="docker compuse up"
+alias dcmu="docker compose up"
 alias dcmd="docker compose down"
