@@ -7,7 +7,7 @@ SAVEHIST=10000
 setopt appendhistory
 
 # zsh options
-setopt autocd extendedglob notify correctall nomatch globdots
+setopt extendedglob notify nomatch
 
 # Install and setup Zi
 if [[ ! -f $HOME/.zi/bin/zi.zsh ]]; then
@@ -101,7 +101,7 @@ alias node_modules_rm="find . -name 'node_modules' -type d -prune -exec rm -rf '
 alias d="docker"
 alias dcm="docker compose"
 alias dcmb="docker compose build"
-alias dcmr="docker compose run"
+alias dcmr="docker compose run --rm"
 alias dcml="docker compose logs --follow --tail 100"
 alias dcmu="docker compose up"
 alias dcmd="docker compose down"
