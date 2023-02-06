@@ -68,7 +68,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=7"
 alias j=z
 
 # Unzipping
-alias untar='tar –-extract --verbose --gzip'
+alias untar='tar --extract --verbose --gzip --file'
 
 # LSD aliasses
 alias ls='lsd --group-dirs first'
