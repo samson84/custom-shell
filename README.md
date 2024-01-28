@@ -45,6 +45,17 @@ config. So just add basic aliases, paths etc... to your zsh config before loadin
 You can configure anytime the p10k with `p10k configure`. Simply do not save the
 changes to your `.zshrc` at the end of the config wizard.
 
+### Changing the default terminal to zsh
+
+`chsh -s /bin/zsh`
+
+### Adding fonts manually
+
+Theoretically, the zi config installs the needed fonts, if something is not working
+install them manually from here.
+
+https://github.com/romkatv/powerlevel10k#fonts
+
 ## Usage
 
 - At the first invocation of the `.zshrc` (sourcing it, or opening a new terminal window)
