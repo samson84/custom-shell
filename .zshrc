@@ -105,3 +105,6 @@ alias dcmr="docker compose run --rm"
 alias dcml="docker compose logs --follow --tail 100"
 alias dcmu="docker compose up"
 alias dcmd="docker compose down"
+
+#find used port's process
+alias usedport="netstat -tulpn | grep"
